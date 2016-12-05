@@ -29,10 +29,16 @@ class PythonOrgSearch(unittest.TestCase):
     def getOptions(self):
         day = (int)(self.m_day)
         month = (int)(self.m_month)
-        if day < 24:
+        if day <= 24:
             self.m_month = str(month - 1)
         self.options = self.m_year + "/" + self.m_month
 
+    def getFileName(self):
+        day = (int)(self.m_day)
+        month = (int)(self.m_month)
+        if day <= 24:
+            self.m_month = str(month - 1)
+        self.filename = self.m_year + "_" + self.m_month + ".html"
 
     def capturePicture(self):
         self.driver.execute_script("""
